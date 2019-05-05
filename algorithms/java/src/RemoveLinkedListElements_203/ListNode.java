@@ -1,4 +1,4 @@
-package RemoveLinkedListElements;
+package RemoveLinkedListElements_203;
 
 public class ListNode {
 
@@ -43,7 +43,7 @@ public class ListNode {
         int[] arr = {1, 2, 6, 3, 4, 5, 6};
         ListNode listNode = new ListNode(arr);
         System.out.println(listNode);
-//        ListNode afterListNode2 = RemoveLinkedListElements.removeElements2(listNode, 6);
+//        ListNode afterListNode2 = RemoveLinkedListElements_203.removeElements2(listNode, 6);
         ListNode afterListNode3 = RemoveLinkedListElements.removeElements3(listNode, 6);
         System.out.println(afterListNode3);
     }

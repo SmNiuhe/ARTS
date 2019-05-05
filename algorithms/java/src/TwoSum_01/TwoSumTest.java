@@ -1,4 +1,4 @@
-package TwoSum;
+package TwoSum_01;
 
 
 import org.junit.Assert;

@@ -1,4 +1,4 @@
-package ReverseInteger;
+package ReverseInteger_07;
 
 import org.junit.Assert;
 import org.junit.Test;
