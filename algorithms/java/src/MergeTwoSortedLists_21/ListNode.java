@@ -1,6 +1,6 @@
 package MergeTwoSortedLists_21;
 
-public class ListNode {
+class ListNode {
 
     int val;
 
@@ -8,5 +8,17 @@ public class ListNode {
 
     ListNode(int x) {
         val = x;
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuilder stringBuilder = new StringBuilder("Head top " + val);
+        ListNode tail = this.next;
+        while (tail != null) {
+            stringBuilder.append("==>" + tail.val);
+            tail = tail.next;
+        }
+        return stringBuilder.toString();
     }
 }
