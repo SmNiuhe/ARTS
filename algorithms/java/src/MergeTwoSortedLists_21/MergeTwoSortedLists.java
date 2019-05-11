@@ -14,16 +14,9 @@ public class MergeTwoSortedLists {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 
 
-        ListNode head1 = new ListNode(1);
-        head1.next = new ListNode(2);
-        head1.next.next = new ListNode(4);
-
-        ListNode head2 = new ListNode(1);
-        head1.next = new ListNode(3);
-        head1.next.next = new ListNode(4);
 
 
-        return head1;
+        return null;
     }
 
 }
