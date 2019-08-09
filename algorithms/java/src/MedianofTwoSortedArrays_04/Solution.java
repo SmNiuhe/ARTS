@@ -31,11 +31,11 @@ package MedianofTwoSortedArrays_04;
 public class Solution {
 
 
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
 
         int i = 0, j = 0, k = 0;
-        int q = nums1.length, r = nums2.length;
-        int[] tmp = new int[q + r];
+        int q = nums1.length - 1, r = nums2.length - 1;
+        int[] tmp = new int[q + r + 2];
 
         while (i <= q && j <= r) {
             if (nums1[i] <= nums2[j]) {
@@ -45,58 +45,42 @@ public class Solution {
             }
         }
 
-        // 判断哪个子数组中有剩余的数据
         int start = i, end = q;
 
+        // 判断哪个子数组中有剩余的数据
         if (j <= r) {
             start = j;
             end = r;
-        }
-
-        // 将剩余的数据拷贝到临时数组 tmp
-        while (start <= end) {
-            tmp[k++] = A[start++];
-        }
-
-
-        // 将 tmp 中的数组拷贝回 A[p...r]
-        for (int z = 0; z <= r - p; z++) {
-            A[p + z] = tmp[z];
-        }
-
-        return 1D;
-    }
-
-
-    private void merge(int[] A, int p, int q, int r) {
-
-        int i = p, j = q + 1, k = 0;  // 初始化变量 i, j, k
-        int[] tmp = new int[A.length];  // 申请一个大小跟 A[p...r] 一样的临时数组
-        while (i <= q && j <= r) {
-            if (A[i] <= A[j]) {
-                tmp[k++] = A[i++]; // i++ 等于 i:=i+1
-            } else {
-                tmp[k++] = A[j++];
+            // 将剩余的数据拷贝到临时数组 tmp
+            while (start <= end) {
+                tmp[k++] = nums2[start++];
+            }
+        } else {
+            while (start <= end) {
+                tmp[k++] = nums1[start++];
             }
         }
 
-        // 判断哪个子数组中有剩余的数据
-        int start = i, end = q;
 
-        if (j <= r) {
-            start = j;
-            end = r;
+        int median = k / 2;
+        if (k % 2 == 0) {
+            return (tmp[median - 1] + tmp[median]) / 2.0D;
         }
+        return tmp[median] * 1.0D;
 
-        // 将剩余的数据拷贝到临时数组 tmp
-        while (start <= end) {
-            tmp[k++] = A[start++];
-        }
-
-
-        // 将 tmp 中的数组拷贝回 A[p...r]
-        for (int z = 0; z <= r - p; z++) {
-            A[p + z] = tmp[z];
-        }
     }
+
+
+    public static void main(String[] args) {
+
+        int[] nums1 = {1, 3};
+        int[] nums2 = {2};
+
+        // int[] nums1 = {1, 2};
+        // int[] nums2 = {3, 4};
+
+        double medianNum = findMedianSortedArrays(nums1, nums2);
+        System.out.println(medianNum);
+    }
+
 }
